@@ -4,21 +4,26 @@ import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import { AiOutlineShopping } from "react-icons/ai";
 import Cart from "./Cart";
+import Image from "next/image";
 const Navbar = () => {
   const toggleShowCart = useStore((state) => state.toggleShowCart);
   const showCart = useStore((state) => state.showCart);
   const a = useStore((state) => state.totalQuantities);
   const [totalQuantities, setTotalQuantities] = useState(0);
-  console.log(showCart);
 
   useEffect(() => {
     setTotalQuantities(a);
   }, [a]);
   return (
     <div className="navbar-container" suppressHydrationWarning={true}>
-      <p className="logo">
-        <Link href={"/"}>Kinbo</Link>
-      </p>
+      <div className="w-[70px] bg-red-500 rounded-full ">
+        <p className="logo">
+          <Link href={"/"}>
+            <Image src="/logo.png" width={100} height={100} alt="Logo" />
+          </Link>
+        </p>
+      </div>
+
       <button
         type="button"
         className="cart-icon"

@@ -1,36 +1,81 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+![Kinbo](/public/logo.png)
+
+# Kinbo
+
+Kinbo is a online marketplace for different kinds of headphones. This website is built on Next Js and sanity is used as the database to extract the product information.Users can select those products and can choose different headphones and make an order. The payment method used is Stripe payment system.For state management Zustand is the choice for its less boilerplate and easy integrations. On the whole, this website is responsive for small to large devices and for styling Tailwind is used.
+
+### Frameworks I worked with
+
+This app is built on seven frameworks that are shown below.
+
+- [![Next][Next]][NextUrl]
+- [![React][React]][ReactUrl]
+- [![Sanity][Sanity Badge]][SanityUrl]
+- [![Stripe][Stripe Badge]][StripeUrl]
+- [![Zustand][Zustand]][ZustandUrl]
+- [![TailwindCss][Tailwind]][TailwindUrl]
+
+### Live Demonstration
+
+Kinbo is live here [Project]()
+
+Here are the screenshots of the Kinbo Website
+
+**Home Page**
+![Home Page](/public/home.png)
+
+---
+
+**Menu Page**
+![Menu](/public/menu.png "Menu")
+
+---
+
+**Single Item Page**
+![Item Detail](/public/singleItem.png)
+
+---
+
+**Shopping Cart**
+![Shopping Cart](/public/cart.png "Shopping Cart")
+
+---
+
+**Footer**
+![Footer](/public/footer.png "Footer")
 
 ## Getting Started
 
-First, run the development server:
+To get started you can simply clone this `kinbo` repository and install the dependencies.
+
+Clone the `kinbo` repository using git:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/faiyaj7/kinbo
+cd kinbo
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Install dependencies with this command:
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+```bash
+npm install
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+Run the application with this command:
 
-## Learn More
+```bash
+npm start
+```
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+[Next]: https://img.shields.io/badge/next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white
+[NextUrl]: https://nextjs.org/
+[React]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
+[ReactUrl]: https://reactjs.org/
+[Sanity Badge]: https://img.shields.io/badge/Sanity-F03E2F?logo=sanity&logoColor=fff&style=plastic
+[SanityUrl]: https://www.sanity.io/
+[Stripe Badge]: https://img.shields.io/badge/Stripe-008CDD?logo=stripe&logoColor=fff&style=plastic
+[StripeUrl]: https://stripe.com/
+[Zustand]: https://img.shields.io/badge/zustand-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB
+[ZustandUrl]: https://github.com/pmndrs/zustand
+[Tailwind]: https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white
+[TailwindUrl]: https://tailwindcss.com

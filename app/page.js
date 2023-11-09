@@ -1,20 +1,18 @@
 import { client } from "@/sanity/lib/client";
 import Image from "next/image";
 import "./globals.css";
-import Banner from "./components/Banner";
-import FooterBanner from "./components/FooterBanner";
-import Product from "./components/Product";
+import Banner from "../components/Banner";
+import FooterBanner from "../components/FooterBanner";
+import Product from "../components/Product";
 
 async function fetchInfo() {
   const products = await client.fetch(`*[_type =='product']`);
   const banner = await client.fetch(`*[_type =='banner']`);
-  // console.log("From the Home page fetchInfo", banner);
   return { products, banner };
 }
 export default async function Home() {
   const { products, banner } = await fetchInfo();
 
-  console.log(products);
   return (
     <>
       <Banner banner={banner.length && banner[0]} />
@@ -24,7 +22,9 @@ export default async function Home() {
       </div>
       <div className="products-container">
         {products.map((item) => (
-          <Product product={item} key={item._id} />
+          <div key={item._id}>
+            <Product product={item} />
+          </div>
         ))}
       </div>
       <FooterBanner footerBanner={banner[0]} />

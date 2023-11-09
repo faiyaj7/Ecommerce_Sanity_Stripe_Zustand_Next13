@@ -11,6 +11,7 @@ const ImageSwitch = ({ image }) => {
         <img
           src={urlForImage(image && image[index]).url()}
           className="product-detail-image"
+          alt={index}
         />
       </div>
       <div className="small-images-container">
@@ -18,6 +19,7 @@ const ImageSwitch = ({ image }) => {
           <img
             key={i}
             src={urlForImage(item).url()}
+            alt={i}
             className={
               i === index ? "small-image selected-image" : "small-image"
             }

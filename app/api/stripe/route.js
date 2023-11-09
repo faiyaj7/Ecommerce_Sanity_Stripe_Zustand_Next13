@@ -6,11 +6,6 @@ const stripe = new Stripe(process.env.NEXT_PUBLIC_STRIPE_SECRET_KEY);
 export async function POST(request) {
   try {
     const info = await request.json();
-    console.log(info);
-    console.log(
-      "THis is the request headres value ",
-      request.headers.get("origin")
-    );
     const params = {
       submit_type: "pay",
       mode: "payment",

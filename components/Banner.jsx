@@ -5,7 +5,7 @@ import React from "react";
 const Banner = ({ banner }) => {
   return (
     <div className="hero-banner-container">
-      <div className="">
+      <div className="w-full">
         <p className="beats-solo">{banner.smallText}</p>
         <h3>{banner.midText}</h3>
         <h1>{banner.largeText1}</h1>

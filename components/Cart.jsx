@@ -29,6 +29,14 @@ const Cart = () => {
   const toggleCartItemQuantity = useStore(
     (state) => state.toggleCartItemQuantity
   );
+
+  const handleCloseCart = (e) => {
+    if (!cartRef.current.contains(e.target)) {
+      // Close the cart only if the click is outside the cart area
+      toggleShowCart(false);
+    }
+  };
+
   const handleCheckout = async () => {
     const stripe = await getStripe();
 
@@ -43,11 +51,11 @@ const Cart = () => {
     if (response.statusCode === 500) return;
 
     const data = await response.json();
-    console.log("This is the data coming from backend of stripe", data);
     toast.loading("Redirecting...");
     toggleShowCart(false);
     stripe.redirectToCheckout({ sessionId: data.session.id });
   };
+
   useEffect(() => {
     setTotalQuantities(a);
     setTotalPrice(b);
@@ -55,8 +63,8 @@ const Cart = () => {
   }, [a, b, c]);
   return (
     <HydrationAvoid>
-      <div className="cart-wrapper" ref={cartRef}>
-        <div className="cart-container">
+      <div className="cart-wrapper" onClick={handleCloseCart}>
+        <div className="cart-container" ref={cartRef}>
           <button
             type="button"
             className="cart-heading"
@@ -90,6 +98,7 @@ const Cart = () => {
                   <img
                     src={urlForImage(item?.image[0]).url()}
                     className="cart-product-image"
+                    alt="cart"
                   />
                   <div className="item-desc">
                     <div className="flex top">

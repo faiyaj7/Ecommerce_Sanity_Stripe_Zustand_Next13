@@ -1,7 +1,7 @@
-import AddToCart from "@/app/components/AddToCart";
-import ChangeQuantity from "@/app/components/ChangeQuantity";
-import ImageSwitch from "@/app/components/ImageSwitch";
-import Product from "@/app/components/Product";
+import AddToCart from "@/components/AddToCart";
+import ChangeQuantity from "@/components/ChangeQuantity";
+import ImageSwitch from "@/components/ImageSwitch";
+import Product from "@/components/Product";
 
 import { client } from "@/sanity/lib/client";
 import { urlForImage } from "@/sanity/lib/image";
@@ -23,7 +23,9 @@ const queryForProduct = async (slug) => {
   const singleProduct = await client.fetch(
     `*[_type=="product" && slug.current == '${slug}' ][0]`
   );
-  const products = await client.fetch(`*[_type=="product"]`);
+  const products = await client.fetch(
+    `*[_type=="product" && name!="${singleProduct.name}"]`
+  );
   return { singleProduct, products };
 };
 
@@ -33,6 +35,16 @@ export async function generateStaticParams() {
   return products.map((item) => ({
     slug: item.slug.current,
   }));
+}
+
+export async function generateMetadata({ params }, parent) {
+  const product = await client.fetch(
+    `*[_type=='product' && slug.current=='${params.slug}'][0]`
+  );
+  return {
+    title: product.name,
+    description: product.description,
+  };
 }
 const SingleProduct = async ({ params }) => {
   const { singleProduct, products } = await queryForProduct(params.slug);
