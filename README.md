@@ -1,4 +1,4 @@
-![Kinbo](/public/logo.png)
+![Kinbo](/public/logo2.png)
 
 # Kinbo
 
